@@ -112,7 +112,7 @@ To manage access across internal tools or partner portals, the system uses Role-
 
 `vehicles` stores info about a driver’s transportation method.
 
-- Fields include vehicle type (`car`, `motorcycle`), license plate, and serial numbers
+- Fields include vehicle type (`car`, `motorcycle`), model, brand, year, operation_card_number, license plate, and serial numbers
 
 Each driver has one associated vehicle.
 
