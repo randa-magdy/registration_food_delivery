@@ -31,7 +31,7 @@ This data model supports a modular and scalable user management system for a mul
 
 ## 👤 users
 
-This is the core table where all users (customers, drivers, partners staff, employees) are stored.
+This is the core table where all users (customers, drivers, partners staff, internal employees) are stored.
 
 - **Key fields**: `user_id`, `user_type_id`, `phone`, `email`, `birth_date`, `gender`
 - **Linked to**:  
