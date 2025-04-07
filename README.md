@@ -89,7 +89,8 @@ To manage access across internal tools or partner portals, the system uses Role-
 `customers` stores personal data for customer-type users.
 
 - Linked to `users` via `user_id`
-- Includes the customer's name
+- Includes :
+  - Customer's name
 
 ---
 
@@ -112,9 +113,60 @@ To manage access across internal tools or partner portals, the system uses Role-
 
 `vehicles` stores info about a driver’s transportation method.
 
-- Fields include vehicle type (`car`, `motorcycle`), model, brand, year, operation_card_number, license plate, and serial numbers
+- includes:
+  - Vehicle Type (`car`, `motorcycle`)
+  - Vehicle model, brand and year
+  - Vehicle operation card number, license plate, and serial numbers
 
 Each driver has one associated vehicle.
+
+---
+
+## 🍴 Partners
+
+`partners` represent restaurant brands or companies subsecribed to the platform.
+
+- Includes business info like:
+  - Commercial registration number
+  - VAT number
+  - Login credentials (username/password)
+
+---
+
+## 🏬 Store Branches
+
+Each partner can have multiple `store_branches`.
+
+- Linked to `partners` and `addresses`
+- Includes contact info:
+  - Name, Phone, and Email
+  - Description
+
+---
+
+## 👨‍🍳 Partner Employees
+
+`partner_employees` stores accounts for staff working at partner stores.
+
+- Linked to `users` via `user_id`
+- includes:
+  - Credentials (username , password) and job title
+  - Connected to store branches through the `emp_branches` join table
+
+**Example**:  
+A cashier at a branch would have their own user account and be linked to that branch.
+
+---
+
+## 🧑‍💼 Internal Employees
+
+`internal_employees` are staff members working within the company that owns the platform.
+
+- Linked to `users` via `user_id`
+- includes:
+  - Credentials (username , password)
+  - Job title, Department, Hire date
+  - `manager_id` links to another internal employee (self-reference)
 
 ---
 
@@ -129,47 +181,3 @@ Used to store uploaded files like ID, license, insurance, etc.
 
 **Example**:  
 A driver might upload a national ID (`target_type = 'user'`, `target_id = user_id`).
-
----
-
-## 🍴 Partners
-
-`partners` represent restaurant brands or companies subsecribed to the platform.
-
-- Stores business info like:
-  - Commercial registration number
-  - VAT number
-  - Login credentials (username/password)
-
----
-
-## 🏬 Store Branches
-
-Each partner can have multiple `store_branches`.
-
-- Linked to `partners` and `addresses`
-- Contains contact info: name, phone, email, description
-
----
-
-## 👨‍🍳 Partner Employees
-
-`partner_employees` stores accounts for staff working at partner stores.
-
-- Linked to `users` via `user_id`
-- Has credentials and job title
-- Connected to store branches through the `emp_branches` join table
-
-**Example**:  
-A cashier at a branch would have their own user account and be linked to that branch.
-
----
-
-## 🧑‍💼 Internal Employees
-
-`internal_employees` are staff members working within the company that owns the platform.
-
-- Linked to `users` via `user_id`
-- Has credentials, job title, department, hire date
-- `manager_id` links to another internal employee (self-reference)
-
