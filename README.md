@@ -81,7 +81,7 @@ To manage access across internal tools or partner portals, the system uses Role-
 - `permissions`: Defines what a role can do on entities (e.g., `orders:view`, `staff:create`)
 - `user_role`: Maps users to roles
 - `role_permission`: Maps roles to permissions
-- 
+  
 ---
 
 ## 👥 Customers
